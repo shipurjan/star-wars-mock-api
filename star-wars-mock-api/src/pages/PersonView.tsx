@@ -46,6 +46,7 @@ const PersonView = () => {
 
     return isLoading ? <Loader /> : <>{
         person && <table className="table">
+            <tbody>
             <Row header="Name" data={person.name}/>
             <Row header="Height" data={person.height}/>
             <Row header="Mass" data={person.mass}/>
@@ -54,6 +55,7 @@ const PersonView = () => {
             <Row header="Eye color" data={person.eye_color}/>
             <Row header="Birth year" data={person.birth_year}/>
             <Row header="Gender" data={person.gender}/>
+</tbody>
         </table>
     }</>
 }
