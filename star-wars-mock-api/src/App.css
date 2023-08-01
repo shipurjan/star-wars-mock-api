@@ -41,6 +41,15 @@
   color: #888;
 }
 
+.header {
+  background-color: black;
+}
+
+.header > img {
+  max-height: 8em;
+  user-select: none;
+}
+
 table.table {
   margin: 1em;
 }

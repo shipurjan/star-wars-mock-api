@@ -1,7 +1,10 @@
+import StarWarsLogo from "../assets/Star_Wars_Logo.svg"
+
 function Header() {
   return (
     <h2 className="header">
-    Star Wars Test API List 
+    <img src={StarWarsLogo} alt="Star Wars" /> 
+    <div>Mock API List</div>
     </h2>
   )
 }
