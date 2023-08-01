@@ -10,7 +10,7 @@ const PeopleList = () => {
   const [people, setPeople] = useState(null)
   const [isListLoading, setListLoading] = useState(true)
 
-  useEffect(() => {
+  const getPeopleList = () => {
     axios
       .get('https://swapi.dev/api/people')
       .then((res) => {
@@ -21,6 +21,10 @@ const PeopleList = () => {
       .catch((err) => {
         console.log(err)
       })
+  }
+
+  useEffect(() => {
+    getPeopleList()
   }, [])
 
     return <>
