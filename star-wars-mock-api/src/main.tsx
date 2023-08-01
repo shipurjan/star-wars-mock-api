@@ -5,7 +5,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import PeopleList from "./pages/PeopleList";
 import PersonView from "./pages/PersonView";
@@ -14,7 +13,7 @@ import PersonView from "./pages/PersonView";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
+    element: <PeopleList/>,
     errorElement: <ErrorPage />, 
   },
   {

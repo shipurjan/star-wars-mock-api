@@ -15,11 +15,10 @@ const PeopleList = () => {
       .get('https://swapi.dev/api/people')
       .then((res) => {
         setPeople(res.data.results)
-        console.log(res.data.results)
         setListLoading(false)
       })
       .catch((err) => {
-        console.log(err)
+        console.error(err)
       })
   }
 
@@ -29,6 +28,7 @@ const PeopleList = () => {
 
     return <>
         <Header />
+        <h2>Star Wars character list</h2>
         {
             isListLoading ? <Loader/> : <List data={people} />
         }

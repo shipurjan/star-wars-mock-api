@@ -1,0 +1,9 @@
+
+.header{
+    border: 1px solid white;
+    width: 100%;
+    min-width: 20rem;
+}
+.header h3 {
+    margin-top: 0;
+}
