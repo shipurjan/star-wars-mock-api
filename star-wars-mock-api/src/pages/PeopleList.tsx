@@ -9,12 +9,17 @@ import Loader from '../components/Loader';
 const PeopleList = () => {
   const [people, setPeople] = useState(null)
   const [isListLoading, setListLoading] = useState(true)
+  const [nextButtonUrl, setNextButtonUrl] = useState(null)
+  const [prevButtonUrl, setPrevButtonUrl] = useState(null)
 
-  const getPeopleList = () => {
+  const getPeopleList = (url: string) => {
     axios
-      .get('https://swapi.dev/api/people')
+      .get(url)
       .then((res) => {
+        console.log(res)
         setPeople(res.data.results)
+        setNextButtonUrl(res.data.next)
+        setPrevButtonUrl(res.data.previous)
         setListLoading(false)
       })
       .catch((err) => {
@@ -23,7 +28,7 @@ const PeopleList = () => {
   }
 
   useEffect(() => {
-    getPeopleList()
+    getPeopleList('https://swapi.dev/api/people/?page=1')
   }, [])
 
     return <>
@@ -32,6 +37,10 @@ const PeopleList = () => {
         {
             isListLoading ? <Loader/> : <List data={people} />
         }
+        <div className='buttons'>
+          {prevButtonUrl && <button onClick={() => getPeopleList(prevButtonUrl)} className='prev btn'>&lt; prev</button>}
+          {nextButtonUrl && <button onClick={() => getPeopleList(nextButtonUrl)} className='next btn'>next &gt;</button>}
+        </div>
     </>
 }
 
