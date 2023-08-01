@@ -1,12 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import Loader from "../components/Loader";
+
+type Props = {
+    header: string,
+    data: string
+}
+const Row = ({header, data}: Props) => {
+    return <tr>
+        <td>{header}</td>
+        <td>{data}</td>
+    </tr>
+}
 
 const PersonView = () => {
     let { personId } = useParams();
     const [isLoading, setLoading] = useState(true)
     const [isError, setError] = useState(false)
-    const [personData, setPersonData] = useState(null)
+    const [person, setPerson] = useState<any>(null)
 
 
     const getPersonInfo = async () => {
@@ -20,22 +32,30 @@ const PersonView = () => {
     }
 
     useEffect(() => {
-
+        axios
+            .get(`https://swapi.dev/api/people/${personId}`)
+            .then((res) => {
+                setPerson(res.data)
+                setLoading(false)
+                console.log(res.data)
+            })
     }, [])
 
-    useEffect(() => {
-        axios
-          .get(`https://swapi.dev/api/people/${personId}`)
-          .then((res) => {
-            setPersonData(res.data)
-          })
-      })
 
+    
 
-
-    return personData && <div>
-        {personData.name}
-    </div>
+    return isLoading ? <Loader /> : <>{
+        person && <table className="table">
+            <Row header="Name" data={person.name}/>
+            <Row header="Height" data={person.height}/>
+            <Row header="Mass" data={person.mass}/>
+            <Row header="Hair color" data={person.hair_color}/>
+            <Row header="Skin color" data={person.skin_color}/>
+            <Row header="Eye color" data={person.eye_color}/>
+            <Row header="Birth year" data={person.birth_year}/>
+            <Row header="Gender" data={person.gender}/>
+        </table>
+    }</>
 }
 
 export default PersonView

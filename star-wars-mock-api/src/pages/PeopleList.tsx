@@ -8,8 +8,6 @@ import Loader from '../components/Loader';
 
 const PeopleList = () => {
   const [people, setPeople] = useState(null)
-  const [isButtonDisabled, setButtonDisabled] = useState(false)
-  const [buttonMessage, setButtonMessage] = useState("Show people")
   const [isListLoading, setListLoading] = useState(true)
 
   useEffect(() => {
@@ -23,7 +21,7 @@ const PeopleList = () => {
       .catch((err) => {
         console.log(err)
       })
-  })
+  }, [])
 
     return <>
         <Header />
