@@ -1,27 +1,14 @@
 function List({ data }: PersonList) {
     return data !== null && (
-        <table className="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Height</th>
-                    <th>Mass</th>
-                    <th>Gender</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    data.map((person: any) => {
-                        return <tr key={person.name}>
-                            <td>{person.name}</td>
-                            <td>{person.height}</td>
-                            <td>{person.mass}</td>
-                            <td>{person.gender}</td>
-                        </tr>
-                    })
-                }
-            </tbody>
-        </table>
+        <ul className="list"> {
+            data.map((person: any, index: number) => {
+                return <li key={person.name}>
+                    <a href={`/people/${(index+1).toString()}`}>
+                        {person.name}
+                    </a>
+                </li>
+            })
+        } </ul>
     )
 }
 

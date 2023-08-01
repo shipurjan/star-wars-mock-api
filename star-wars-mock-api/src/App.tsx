@@ -19,6 +19,10 @@ function App() {
         setPeople(response.data.results)
         setListLoading(false)
         setButtonMessage("Success")
+        console.log(response.data.results)
+      }
+      else {
+        throw new Error("Bad response")
       }
     }
     catch (err) {
