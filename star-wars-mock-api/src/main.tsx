@@ -8,6 +8,7 @@ import "./index.css";
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import PeopleList from "./pages/PeopleList";
+import PersonView from "./pages/PersonView";
 
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "people/",
     element: <PeopleList/>
+  },
+  {
+    path: "people/:personId",
+    element: <PersonView/>
   }
 ]);
 
