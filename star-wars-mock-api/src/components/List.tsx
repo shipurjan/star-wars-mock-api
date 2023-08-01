@@ -1,6 +1,6 @@
 function List({ data }: PersonList) {
     return data !== null && (
-        <table className="list">
+        <table className="table">
             <thead>
                 <tr>
                     <th>Name</th>
