@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 
-function List({ data }: PersonList) {
+function List({ data }: (any[] | null)) {
     return data !== null && (
         <ul className="list"> {
-            data.map((person: any, index: number) => {
+            data.map((person: any) => {
                 // Getting the person ID from URL value like "https://swapi.dev/api/people/14/"
                 const personId = person.url.split("/").slice(-2,-1)
                 return <li key={person.name}>

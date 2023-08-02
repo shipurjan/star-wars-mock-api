@@ -17,10 +17,10 @@ const Row = ({ header, data }: Props) => {
 }
 
 const PersonView = () => {
-    let { personId } = useParams();
+    const { personId } = useParams();
     const [isLoading, setLoading] = useState(true)
     const [isError, setError] = useState(false)
-    const [person, setPerson] = useState<any>(null)
+    const [person, setPerson] = useState(null)
 
 
     const getPersonData = async () => {
@@ -30,7 +30,7 @@ const PersonView = () => {
                 setPerson(res.data)
                 setLoading(false)
             })
-            .catch((err) => {
+            .catch(() => {
                 setLoading(false)
                 setError(true)
             })
