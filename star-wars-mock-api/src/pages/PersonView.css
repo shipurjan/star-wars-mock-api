@@ -1,0 +1,27 @@
+#root {
+    max-width: 1280px;
+    margin: 0;
+    padding: 0 2rem 2rem 2rem;
+    text-align: center;
+  }
+
+table.table td {
+    background-color: black;
+    padding: 0.25em 0.75em;
+    text-align: left;
+}
+
+table.table {
+    border: 1px solid white;
+    width: 100%;
+    border-radius: 5%;
+}
+
+table.table tr td:first-child {
+    font-weight: bold;
+    text-align: right;
+}
+
+h2.error {
+    background-color: #ff000055;
+}
