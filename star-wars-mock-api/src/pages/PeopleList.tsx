@@ -16,6 +16,7 @@ const PeopleList = () => {
     axios
       .get(url)
       .then((res) => {
+        console.log(res.data.results)
         setPeople(res.data.results)
         setNextButtonUrl(res.data.next)
         setPrevButtonUrl(res.data.previous)

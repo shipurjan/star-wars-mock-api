@@ -3,6 +3,7 @@
     border: 1px solid white;
     width: 100%;
     min-width: 20rem;
+    border-radius: 5%;
 }
 .header h3 {
     margin-top: 0;

@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import "./index.css";
+import "./main.css";
 import ErrorPage from "./error-page";
 import PeopleList from "./pages/PeopleList";
 import PersonView from "./pages/PersonView";
